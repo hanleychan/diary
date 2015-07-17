@@ -12,9 +12,9 @@ class Entry(Model):
 
 	@classmethod
 	def deleteEntry(cls, entryDate):
-	"""
-	Deletes the an entry based on entryDate
-	"""
+		"""
+		Deletes the an entry based on entryDate
+		"""
 		try:
 			entry = cls.select().where(cls.entryDate == entryDate).get()
 			entry.delete_instance()
@@ -24,9 +24,9 @@ class Entry(Model):
 
 	@classmethod
 	def updateEntry(cls, entryDate, content):
-	"""
-	Updates or adds a new entry based on whether an entry already exists for the specified entryDate
-	"""
+		"""
+		Updates or adds a new entry based on whether an entry already exists for the specified entryDate
+		"""
 		# check if there is already an entry for entryDate
 		try:
 			entry = cls.select().where(cls.entryDate==entryDate).get()
@@ -38,9 +38,9 @@ class Entry(Model):
 
 	@classmethod
 	def getEntry(cls, entryDate):
-	"""
-	Returns the content of an entry based on entry date
-	"""
+		"""
+		Returns the content of an entry based on entry date
+		"""
 		try:
 			entry = cls.select().where(cls.entryDate==entryDate).get()
 			return entry.content
