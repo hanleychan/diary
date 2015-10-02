@@ -14,22 +14,22 @@ class Diary:
 		frame_top.pack(side=tkinter.TOP)
 		frame_left = tkinter.Frame(master)
 		frame_left.pack(side=tkinter.LEFT)
-		frame_right = tkinter.Frame(master, width= 500)
+		frame_right = tkinter.Frame(master)
 		frame_right.pack()
 
 		# create date label
-		self.dateLabel = tkinter.Label(frame_top,text="Date: " + str(self.currDate))
+		self.dateLabel = tkinter.Label(frame_top, text="Date: " + str(self.currDate))
 		self.dateLabel.pack()
 
 		# create entry widget for storing diary entry
-		self.entry = tkinter.Text(frame_left, wrap = tkinter.WORD)
+		self.entry = tkinter.Text(frame_left, wrap = tkinter.WORD, width=100, height=50)
 		
 		# get text for currDate if exists
 		entryText = Entry.getEntry(self.currDate)
 		if entryText:
 			self.entry.insert(1.0,entryText)
 
-		self.entry.pack(padx=10, pady=10)
+		self.entry.pack(padx=10, pady=10, fill=tkinter.BOTH)
 
 		#create next and previous entry buttons
 		self.previousEntryButton = tkinter.Button(frame_right, text="prev", command = self.prevEntry)
